@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 public class Game {
     Scanner scan = new Scanner(System.in);
@@ -16,14 +15,16 @@ public class Game {
                 "Hearts", "Spades", "Clubs", "Diamonds"
         };
         deck = new Deck(ranks, suits, values);
-        dealer = new Player("dealer");
-        p1 = new Player("p1");
+        dealer = new Player("Dealer");
+        p1 = new Player("Player 1");
 
 
     }
 
     public void printInstructions(){
-        System.out.println("instructions go here");
+        System.out.println("Welcome to Ethan's Black Jack! The rules are pretty much like Black Jack with the" +
+                "exception of anything I may have forgot about. After each hand, click the re-run button to play"  +
+                "again. You are 'Player 1' and you are playing against the dealer.");
     }
 
     public void playGame(){
@@ -41,8 +42,6 @@ public class Game {
         System.out.println(dealer);
 
         while(p1.sum() < 21){//game loop
-            //print player and dealer's hands
-            //dealer.printDealer();
             //scanner to ask if they wanna hit or stand
             System.out.println("Would you like to hit or stand? Type 'hit' or 'stand'.");
             String str = scan.nextLine();
@@ -50,14 +49,11 @@ public class Game {
             {
                 p1.addCard(deck.deal());
                 System.out.println(p1);
-
-
             } else{
                 //get out of if statement
                 break;
             }
-
-            //make dealer draw a card
+            //md
         }
         while(dealer.sum() < 17)
         {
@@ -66,11 +62,11 @@ public class Game {
             System.out.println(dealer);
         }
 
-        //check card values and see who wins
+
         //check ties
         if (dealer.sum() == p1.sum())
         {
-            System.out.println("Tie.");
+            System.out.println("Dealer and player hand equal each other. Tie.");
         }
         else if (dealer.sum() > 21) {
             if (p1.sum() > 21) {
@@ -85,46 +81,19 @@ public class Game {
         {
             System.out.println("Dealer got a BlackJack. Dealer wins.");
         } else {
-            if (p1.sum() > 21)
-            {
-                System.out.println("Dealer wins.");
-            } else if (p1.sum() == 21)
-            {
+            if (p1.sum() > 21) {
+                System.out.println("Player went over 21. Dealer wins.");
+            } else if (p1.sum() == 21) {
                 System.out.println("Player got a BlackJack. Player wins.");
             } else {
-                if (dealer.sum() > p1.sum())
-                {
-                    System.out.println("Dealer wins.");
+                if (dealer.sum() > p1.sum()) {
+                    System.out.println("Dealer had higher value hand. Dealer wins.");
                 } else {
-                    System.out.println("Player wins.");
+                    System.out.println("Player had higher value hand. Player wins.");
                 }
             }
 
         }
-
-        //both under 21
-        //  check which is bigger, that one wins
-        //only one at 21, that person wins
-        //only one over 21, other person wins
-        //both are 21, tie
-        //both are over 21, tie
-        // if p1 == dealer
-        //      tie
-        // else if p1 > 21 and dealer > 21
-        //      tie
-        // else if p1 < 21 and dealer < 21
-        //      if p1 > dealer
-        //          p1 win
-        //      else
-        //          dealer win
-        // else if p1 == 21
-        //      p1 win
-        // else if dealer == 21
-        //      dealer win
-        // else if p1 > 21
-        //      dealer win
-        // else //dealer > 21
-        //      p1 win
     }
 
     public static void main(String[] args){

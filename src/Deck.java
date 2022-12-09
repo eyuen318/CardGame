@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Collections;
 public class Deck {
     private ArrayList<Card> cards;
     private int cardsLeft;
@@ -35,7 +34,6 @@ public class Deck {
         for (int i = 0; i < cards.size(); i++)
         {
             int rand = (int)(Math.random() * cards.size());
-            //Collections.swap(cards, i, rand);
             Card temp = cards.get(i);
             cards.set(i, cards.get(rand));
             cards.set(rand, temp);
@@ -43,7 +41,4 @@ public class Deck {
         cardsLeft = cards.size();
     }
 
-    public void printDeck() {
-        System.out.println(cards);
-    }
 }
