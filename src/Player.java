@@ -36,11 +36,18 @@ public class Player {
 
     public int sum()
     {
+        boolean aceExists = false;
         int sum = 0;
         for(int i = 0; i < hand.size(); i++) {
+            if (hand.get(i).getPoint() == 1)
+            {
+                aceExists = true;
+            }
             sum += hand.get(i).getPoint();
         }
-        System.out.println(sum);
+        if(sum < 12 && aceExists){
+            sum += 10;
+        }
         return sum;
     }
     public int numCards(){
@@ -55,6 +62,6 @@ public class Player {
 
     @Override
     public String toString(){
-        return name +" has " + points +"points\n" + name + "’s cards: " + hand;
+        return name + "’s cards: " + hand + " total: " + sum();
     }
 }

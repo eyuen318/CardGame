@@ -34,9 +34,9 @@ public class Deck {
     public void shuffle(){
         for (int i = 0; i < cards.size(); i++)
         {
-            //Collections.swap(cards, i, (int)Math.random() * cards.size());
+            int rand = (int)(Math.random() * cards.size());
+            //Collections.swap(cards, i, rand);
             Card temp = cards.get(i);
-            int rand = (int)Math.random() * cards.size();
             cards.set(i, cards.get(rand));
             cards.set(rand, temp);
         }
