@@ -24,7 +24,7 @@ public class Game {
     public void printInstructions(){
         System.out.println("Welcome to Ethan's Black Jack! The rules are pretty much like Black Jack with the" +
                 "exception of anything I may have forgot about. After each hand, click the re-run button to play"  +
-                "again. You are 'Player 1' and you are playing against the dealer.");
+                "again. You are 'Player 1' and you are playing against the dealer. ");
     }
 
     public void playGame(){
