@@ -1,9 +1,15 @@
+import javax.swing.*;
+import java.util.ArrayList;
 import java.util.Scanner;
+import java.awt.*;
 public class Game {
     Scanner scan = new Scanner(System.in);
     Deck deck;
     Player dealer;
     Player p1;
+
+    private CardGameViewer window;
+
     public Game(){
         String[] ranks = {
                 "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"
@@ -14,9 +20,67 @@ public class Game {
         String[] suits = {
                 "Hearts", "Spades", "Clubs", "Diamonds"
         };
-        deck = new Deck(ranks, suits, values);
+        Image[] cardImages = {
+                new ImageIcon("Resources/ace_of_hearts.png").getImage(),
+                new ImageIcon("Resources/2_of_hearts.png").getImage(),
+                new ImageIcon("Resources/3_of_hearts.png").getImage(),
+                new ImageIcon("Resources/4_of_hearts.png").getImage(),
+                new ImageIcon("Resources/5_of_hearts.png").getImage(),
+                new ImageIcon("Resources/6_of_hearts.png").getImage(),
+                new ImageIcon("Resources/7_of_hearts.png").getImage(),
+                new ImageIcon("Resources/8_of_hearts.png").getImage(),
+                new ImageIcon("Resources/9_of_hearts.png").getImage(),
+                new ImageIcon("Resources/10_of_hearts.png").getImage(),
+                new ImageIcon("Resources/jack_of_hearts2.png").getImage(),
+                new ImageIcon("Resources/queen_of_hearts2.png").getImage(),
+                new ImageIcon("Resources/king_of_hearts2.png").getImage(),
+
+                new ImageIcon("Resources/ace_of_spades2.png").getImage(),
+                new ImageIcon("Resources/2_of_spades.png").getImage(),
+                new ImageIcon("Resources/3_of_spades.png").getImage(),
+                new ImageIcon("Resources/4_of_spades.png").getImage(),
+                new ImageIcon("Resources/5_of_spades.png").getImage(),
+                new ImageIcon("Resources/6_of_spades.png").getImage(),
+                new ImageIcon("Resources/7_of_spades.png").getImage(),
+                new ImageIcon("Resources/8_of_spades.png").getImage(),
+                new ImageIcon("Resources/9_of_spades.png").getImage(),
+                new ImageIcon("Resources/10_of_spades.png").getImage(),
+                new ImageIcon("Resources/jack_of_spades2.png").getImage(),
+                new ImageIcon("Resources/queen_of_spades2.png").getImage(),
+                new ImageIcon("Resources/king_of_spades2.png").getImage(),
+
+                new ImageIcon("Resources/ace_of_clubs.png").getImage(),
+                new ImageIcon("Resources/2_of_clubs.png").getImage(),
+                new ImageIcon("Resources/3_of_clubs.png").getImage(),
+                new ImageIcon("Resources/4_of_clubs.png").getImage(),
+                new ImageIcon("Resources/5_of_clubs.png").getImage(),
+                new ImageIcon("Resources/6_of_clubs.png").getImage(),
+                new ImageIcon("Resources/7_of_clubs.png").getImage(),
+                new ImageIcon("Resources/8_of_clubs.png").getImage(),
+                new ImageIcon("Resources/9_of_clubs.png").getImage(),
+                new ImageIcon("Resources/10_of_clubs.png").getImage(),
+                new ImageIcon("Resources/jack_of_clubs2.png").getImage(),
+                new ImageIcon("Resources/queen_of_clubs2.png").getImage(),
+                new ImageIcon("Resources/king_of_clubs2.png").getImage(),
+
+                new ImageIcon("Resources/ace_of_diamonds.png").getImage(),
+                new ImageIcon("Resources/2_of_diamonds.png").getImage(),
+                new ImageIcon("Resources/3_of_diamonds.png").getImage(),
+                new ImageIcon("Resources/4_of_diamonds.png").getImage(),
+                new ImageIcon("Resources/5_of_diamonds.png").getImage(),
+                new ImageIcon("Resources/6_of_diamonds.png").getImage(),
+                new ImageIcon("Resources/7_of_diamonds.png").getImage(),
+                new ImageIcon("Resources/8_of_diamonds.png").getImage(),
+                new ImageIcon("Resources/9_of_diamonds.png").getImage(),
+                new ImageIcon("Resources/10_of_diamonds.png").getImage(),
+                new ImageIcon("Resources/jack_of_diamonds2.png").getImage(),
+                new ImageIcon("Resources/queen_of_diamonds2.png").getImage(),
+                new ImageIcon("Resources/king_of_diamonds2.png").getImage()
+        };
+        deck = new Deck(ranks, suits, values, cardImages);
         dealer = new Player("Dealer");
         p1 = new Player("Player 1");
+        window = new CardGameViewer(dealer, p1, this);
 
 
     }

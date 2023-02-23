@@ -1,14 +1,16 @@
 import java.util.ArrayList;
+import java.awt.*;
+import javax.swing.*;
 public class Deck {
     private ArrayList<Card> cards;
     private int cardsLeft;
-    public Deck(String[] ranks, String[] suits, int[] values) {
+    public Deck(String[] ranks, String[] suits, int[] values, Image[] cardImages) {
         cards = new ArrayList<Card>();
         for (int i = 0; i < suits.length; i++)
         {
             for(int j = 0; j < ranks.length; j++)
             {
-                Card c = new Card(ranks[j], suits[i], values[j]);
+                Card c = new Card(ranks[j], suits[i], values[j], cardImages[j + (13*i)], new ImageIcon("Resources/backOfCard.png").getImage());
                 cards.add(c);
             }
         }
