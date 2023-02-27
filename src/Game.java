@@ -20,6 +20,8 @@ public class Game {
         String[] suits = {
                 "Hearts", "Spades", "Clubs", "Diamonds"
         };
+
+
         Image[] cardImages = {
                 new ImageIcon("Resources/ace_of_hearts.png").getImage(),
                 new ImageIcon("Resources/2_of_hearts.png").getImage(),
@@ -113,11 +115,13 @@ public class Game {
             {
                 p1.addCard(deck.deal());
                 System.out.println(p1);
+                this.window.repaint(); //this calls paint() again
             } else{
                 //get out of if statement
                 break;
             }
             //md
+
         }
         while(dealer.sum() < 17)
         {
